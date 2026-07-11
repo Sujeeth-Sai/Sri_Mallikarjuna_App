@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Custom stylized factory layout centered on the 108x108 canvas -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M28,74 L28,44 L44,44 L44,54 L60,54 L60,34 L80,34 L80,74 Z" />
+    <!-- Detailed door and chimney accents -->
+    <path
+        android:fillColor="#D29F54"
+        android:pathData="M34,74 L34,60 L44,60 L44,74 Z" />
+    <path
+        android:fillColor="#EAE2D5"
+        android:pathData="M66,42 L74,42 L74,50 L66,50 Z" />
+    <path
+        android:fillColor="#EAE2D5"
+        android:pathData="M66,56 L74,56 L74,64 L66,64 Z" />
+</vector>

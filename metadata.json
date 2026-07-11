@@ -1,0 +1,6 @@
+{
+  "name": "Sri Mallikarjuna Industries",
+  "description": "Bilingual ledger for Cashew Processing and Trading factories with real-time analytics and AI CFO audits.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

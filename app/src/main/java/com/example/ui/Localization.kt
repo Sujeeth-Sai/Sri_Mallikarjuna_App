@@ -1,0 +1,263 @@
+package com.example.ui
+
+enum class Language {
+    EN, TE
+}
+
+object Loc {
+    fun t(key: String, lang: Language): String {
+        val map = when (lang) {
+            Language.EN -> mapOf(
+                "app_title" to "Sri Mallikarjuna Industries",
+                "app_subtitle" to "",
+                "dashboard" to "Dashboard",
+                "stock_ledger" to "Stock Ledger",
+                "directory" to "Directory",
+                "expenses" to "Expenses",
+                "staff_attendance" to "Staff & Attendance",
+                "ai_cfo" to "Report",
+                
+                // Dashboard
+                "total_cash_in" to "Total Cash-In (Sales)",
+                "outbound_sales" to "Outbound Sales",
+                "net_margin" to "Net Margin",
+                "active_stock" to "Active Stock",
+                "raw_material" to "Raw Material",
+                "finished_good" to "Finished Good",
+                "stock_summary" to "Stock Summaries",
+                "recent_sales_chart" to "Visual Operations & Finances",
+                
+                // Inventory
+                "add_product" to "Add Product",
+                "name" to "Name",
+                "classification" to "Classification",
+                "initial_stock" to "Initial Stock (KGs)",
+                "cost_price" to "Cost Price per KG",
+                "current_stock" to "Current Stock",
+                "receive_stock" to "Receive Stock (Inbound)",
+                "ship_stock" to "Ship Stock / Sales (Outbound)",
+                "recent_movements" to "Recent Stock Movements",
+                "select_product" to "Select Product",
+                "select_supplier" to "Select Supplier",
+                "select_customer" to "Select Customer",
+                "quantity" to "Quantity (KG)",
+                "price_per_kg" to "Price per KG",
+                "inbound_raw" to "Purchased Raw Material",
+                "outbound_finished" to "Manufactured Finished Good",
+                "inbound_desc" to "Only raw materials are eligible for receiving stock.",
+                "outbound_desc" to "Only finished goods are eligible for sales/shipping.",
+                
+                // Directory
+                "contacts_directory" to "Suppliers & Customers Directory",
+                "add_contact" to "Add Business Contact",
+                "phone" to "Phone Number",
+                "location" to "Location / Details",
+                "supplier" to "Supplier",
+                "customer" to "Customer",
+                "active_supplier" to "Active Supplier",
+                "active_customer" to "Active Customer",
+                
+                // Expenses
+                "expenses_ledger" to "Expenses & Outflows Ledger",
+                "add_expense" to "Add Expense",
+                "expense_title" to "Expense Title",
+                "amount" to "Amount (₹)",
+                "category" to "Category",
+                "status" to "Status",
+                "utilities" to "Utilities",
+                "packaging" to "Packaging",
+                "fuel" to "Fuel",
+                "others" to "Others",
+                "all" to "All",
+                "settled" to "Settled",
+                "pending" to "Pending",
+                
+                // Staff
+                "staff_registry" to "Staff Registry & Daily Attendance",
+                "add_staff" to "Add Staff Member",
+                "role" to "Role / Designation",
+                "monthly_salary" to "Monthly Salary",
+                "month" to "Month",
+                "attendance_checklist" to "Daily Attendance Checklist",
+                "present" to "Present",
+                "absent" to "Absent",
+                "staff_payouts" to "Staff Monthly Budget",
+                
+                // AI CFO
+                "ai_cfo_audit" to "Report & Interactive Audit",
+                "report_timeline" to "Report Timeline Selector",
+                "timeline_revenue" to "Timeline Revenue",
+                "timeline_expenses" to "Timeline Expenses",
+                "period_net_profit" to "Period Net Profit",
+                "generate_cfo_report" to "Generate CFO Report",
+                "ask_cfo" to "Ask CFO Advisor...",
+                "cfo_placeholder" to "Ask about pricing strategies, cost-cutting, or processing efficiency...",
+                "all_time" to "All-Time",
+                "today" to "Today",
+                "last_7_days" to "Last 7 Days (This Week)",
+                "last_30_days" to "Last 30 Days (This Month)",
+                "custom_range" to "Custom Range",
+                "start_date" to "Start Date",
+                "end_date" to "End Date",
+                "cfo_system_prompt" to "You are an expert CFO for an Indian Cashew Processing factory. Analyze financial data, raw materials cost, and payroll, and deliver high-impact advice in Markdown format.",
+                "cfo_chat_header" to "Interactive Business Consultation",
+                "cfo_report_header" to "Official CFO Audit Report",
+                "thinking" to "CFO is analyzing factory sheets...",
+                
+                // Common Buttons / Feedback
+                "cancel" to "Cancel",
+                "submit" to "Submit",
+                "save" to "Save",
+                "success_added" to "Successfully added!",
+                "success_logged" to "Stock log recorded successfully!",
+                "error_fields" to "Please fill all required fields correctly.",
+                "no_entries" to "No entries recorded yet.",
+                "rupee_symbol" to "₹",
+                "kg_symbol" to "KG",
+
+                // Auth Screen
+                "login" to "Login",
+                "register" to "Register / Sign Up",
+                "email" to "Email Address",
+                "password" to "Password",
+                "sign_in" to "Sign In",
+                "sign_up" to "Sign Up",
+                "sign_out" to "Sign Out",
+                "dont_have_account" to "Don't have an account? Register",
+                "already_have_account" to "Already have an account? Login",
+                "auth_failed" to "Authentication failed. Please check your details.",
+                "auth_success" to "Authentication successful!",
+                "sending_reset" to "Sending password reset email...",
+                "reset_sent" to "Password reset email sent!",
+                "forgot_password" to "Forgot Password?",
+                "authenticating" to "Authenticating..."
+            )
+            Language.TE -> mapOf(
+                "app_title" to "శ్రీ మల్లికార్జున ఇండస్ట్రీస్",
+                "app_subtitle" to "",
+                "dashboard" to "డ్యాష్‌బోర్డ్",
+                "stock_ledger" to "స్టాక్ లెడ్జర్",
+                "directory" to "డైరెక్టరీ",
+                "expenses" to "ఖర్చులు",
+                "staff_attendance" to "సిబ్బంది & హాజరు",
+                "ai_cfo" to "రిపోర్ట్ (Report)",
+                
+                // Dashboard
+                "total_cash_in" to "మొత్తం నగదు జమ (అమ్మకాలు)",
+                "outbound_sales" to "అమ్మకాల లావాదేవీలు",
+                "net_margin" to "నికర లాభం (Net Margin)",
+                "active_stock" to "ప్రస్తుత స్టాక్",
+                "raw_material" to "ముడి సరుకు (Raw Material)",
+                "finished_good" to "తయారైన సరుకు (Finished Good)",
+                "stock_summary" to "స్టాక్ సారాంశాలు",
+                "recent_sales_chart" to "కార్యకలాపాలు & ఆర్థిక చార్టులు",
+                
+                // Inventory
+                "add_product" to "కొత్త సరుకు జోడించు",
+                "name" to "పేరు",
+                "classification" to "సరుకు రకం",
+                "initial_stock" to "ప్రారంభ స్టాక్ (KGs)",
+                "cost_price" to "కొనుగోలు ధర (KG కి)",
+                "current_stock" to "ప్రస్తుత నిల్వ",
+                "receive_stock" to "ముడి సరుకు స్వీకరణ (Inbound)",
+                "ship_stock" to "సరుకు అమ్మకం / రవాణా (Outbound)",
+                "recent_movements" to "ఇటీవలి స్టాక్ లావాదేవీలు",
+                "select_product" to "సరుకుని ఎంచుకోండి",
+                "select_supplier" to "సరఫరాదారుని ఎంచుకోండి",
+                "select_customer" to "కస్టమర్‌ని ఎంచుకోండి",
+                "quantity" to "పరిమాణం (KG)",
+                "price_per_kg" to "ధర (KG కి)",
+                "inbound_raw" to "కొనుగోలు చేసిన ముడి సరుకు",
+                "outbound_finished" to "తయారైన పూర్తి సరుకు",
+                "inbound_desc" to "ముడి సరుకులను మాత్రమే స్వీకరించడానికి అనుమతి ఉంది.",
+                "outbound_desc" to "తయారైన సరుకులను మాత్రమే విక్రయించడానికి అనుమతి ఉంది.",
+                
+                // Directory
+                "contacts_directory" to "సరఫరాదారులు & కస్టమర్ల డైరెక్టరీ",
+                "add_contact" to "కొత్త కాంటాక్ట్ జోడించు",
+                "phone" to "ఫోన్ నెంబర్",
+                "location" to "చిరునామా / వివరాలు",
+                "supplier" to "సరఫరాదారు (Supplier)",
+                "customer" to "కస్టమర్ (Customer)",
+                "active_supplier" to "సరఫరాదారు (Supplier)",
+                "active_customer" to "కస్టమర్ (Customer)",
+                
+                // Expenses
+                "expenses_ledger" to "ఖర్చులు & చెల్లింపుల లెడ్జర్",
+                "add_expense" to "కొత్త ఖర్చు జోడించు",
+                "expense_title" to "ఖర్చు వివరం",
+                "amount" to "మొత్తం (₹)",
+                "category" to "వర్గం (Category)",
+                "status" to "స్థితి (Status)",
+                "utilities" to "కరెంట్/నీరు (Utilities)",
+                "packaging" to "ప్యాకేజింగ్",
+                "fuel" to "ఇంధనం (Fuel)",
+                "others" to "ఇతర ఖర్చులు",
+                "all" to "అన్నీ",
+                "settled" to "చెల్లించినవి (Settled)",
+                "pending" to "బాకీ ఉన్నవి (Pending)",
+                
+                // Staff
+                "staff_registry" to "సిబ్బంది పట్టిక & రోజువారీ హాజరు",
+                "add_staff" to "కొత్త ఉద్యోగిని చేర్చు",
+                "role" to "ఉద్యోగం / బాధ్యత",
+                "monthly_salary" to "నెల జీతం",
+                "month" to "నెల",
+                "attendance_checklist" to "రోజువారీ హాజరు పట్టిక",
+                "present" to "హాజరు (Present)",
+                "absent" to "గైర్హాజరు (Absent)",
+                "staff_payouts" to "నెలసరి ఉద్యోగుల బడ్జెట్",
+                
+                // AI CFO
+                "ai_cfo_audit" to "రిపోర్ట్ & ఆర్థిక ఆడిట్",
+                "report_timeline" to "నివేదిక సమయ పరిధి",
+                "timeline_revenue" to "సమయ ఆదాయం",
+                "timeline_expenses" to "సమయ ఖర్చులు",
+                "period_net_profit" to "ఈ సమయ నికర లాభం",
+                "generate_cfo_report" to "CFO నివేదికను సృష్టించు",
+                "ask_cfo" to "CFO ని ప్రశ్నించండి...",
+                "cfo_placeholder" to "ధరల వ్యూహాలు, ఖర్చుల తగ్గింపు లేదా సామర్థ్యం గురించి అడగండి...",
+                "all_time" to "మొత్తం కాలం (All-Time)",
+                "today" to "ఈరోజు",
+                "last_7_days" to "గత 7 రోజులు (ఈ వారం)",
+                "last_30_days" to "గత 30 రోజులు (ఈ నెల)",
+                "custom_range" to "కస్టమ్ సమయ పరిధి",
+                "start_date" to "ప్రారంభ తేదీ",
+                "end_date" to "చివరి తేదీ",
+                "cfo_system_prompt" to "మీరు జీడిపప్పు ప్రాసెసింగ్ ఫ్యాక్టరీకి అనుభవజ్ఞుడైన CFO. ముడిసరుకు ఖర్చులు, అమ్మకాలు మరియు ఉద్యోగుల వేతనాల డేటాను విశ్లేషించి, స్పష్టమైన సలహాలను తెలుగులో నివేదించండి.",
+                "cfo_chat_header" to "లైవ్ బిజినెస్ సంప్రదింపులు",
+                "cfo_report_header" to "అధికారిక CFO ఆడిట్ నివేదిక",
+                "thinking" to "CFO ఫ్యాక్టరీ ఖాతాలను విశ్లేషిస్తోంది...",
+                
+                // Common Buttons / Feedback
+                "cancel" to "రద్దు చేయి",
+                "submit" to "సమర్పించు",
+                "save" to "సేవ్ చేయి",
+                "success_added" to "విజయవంతంగా జోడించబడింది!",
+                "success_logged" to "స్టాక్ వివరాలు విజయవంతంగా నమోదయ్యాయి!",
+                "error_fields" to "దయచేసి అన్ని వివరాలను సరిగ్గా పూరించండి.",
+                "no_entries" to "ఇంకా ఎలాంటి రికార్డులు లేవు.",
+                "rupee_symbol" to "₹",
+                "kg_symbol" to "KG",
+
+                // Auth Screen
+                "login" to "లాగిన్ (Login)",
+                "register" to "రిజిస్టర్ (Register)",
+                "email" to "ఈమెయిల్ చిరునామా (Email)",
+                "password" to "పాస్‌వర్డ్ (Password)",
+                "sign_in" to "లాగిన్ అవ్వండి",
+                "sign_up" to "ఖాతా సృష్టించండి",
+                "sign_out" to "లాగ్ అవుట్ (Sign Out)",
+                "dont_have_account" to "ఖాతా లేదా? రిజిస్టర్ చేసుకోండి",
+                "already_have_account" to "ఇప్పటికే ఖాతా ఉందా? లాగిన్ చేయండి",
+                "auth_failed" to "లాగిన్ విఫలమైంది. దయచేసి వివరాలను సరిచూసుకోండి.",
+                "auth_success" to "విజయవంతంగా లాగిన్ అయ్యారు!",
+                "sending_reset" to "పాస్‌వర్డ్ రీసెట్ ఈమెయిల్ పంపుతోంది...",
+                "reset_sent" to "పాస్‌వర్డ్ రీసెట్ లింక్ పంపబడింది!",
+                "forgot_password" to "పాస్‌వర్డ్ మర్చిపోయారా?",
+                "authenticating" to "ధృవీకరిస్తోంది..."
+            )
+        }
+        return map[key] ?: key
+    }
+}
