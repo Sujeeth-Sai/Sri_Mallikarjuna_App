@@ -1,46 +1,35 @@
-# Sri Mallikarjuna — Android Operations App
+# Sri Mallikarjuna Industries
 
-A Kotlin and Jetpack Compose companion app for managing inventory, contacts, expenses, and attendance. It includes Supabase account/data access and an optional Gemini report integration.
+Bilingual enterprise management suite for cashew processing and agro-trading. The same React application powers the Vercel website and the Capacitor Android app.
 
-[Web companion](https://github.com/Sujeeth-Sai/Sri_Mallikarjuna_Webiste) · [Data layer](app/src/main/java/com/example/data) · [View model](app/src/main/java/com/example/ui/FactoryViewModel.kt)
+## Local development
 
-## What is in the app
+```bash
+cp .env.example .env.local
+npm install
+npm run dev
+```
 
-- Product and stock transaction management.
-- Supplier/customer contacts and expense records.
-- Employees and attendance workflows.
-- Supabase sign-in and data requests.
-- AI-assisted CFO report generation.
-- Localized UI strings and Compose screens.
+Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` to connect both builds to the shared Supabase project. `VITE_GEMINI_API_KEY` is optional and enables the online AI CFO response; the app includes an offline analysis fallback.
 
-## Stack
+## Web build
 
-Kotlin, Jetpack Compose, Material 3, coroutines, OkHttp/Retrofit, and Moshi. The project also includes JUnit, Robolectric, and Roborazzi test dependencies.
+```bash
+npm run build
+npm run preview
+```
 
-## Set up a development build
+## Android build
 
-1. Clone `https://github.com/Sujeeth-Sai/Sri_Mallikarjuna_App.git` and open it in Android Studio.
-2. Install the Android SDK and Gradle/JDK versions compatible with the checked-in Android Gradle Plugin. The project targets SDK 36 and supports Android API 24+.
-3. Copy `.env.example` to `.env` in the repository root and configure your development `SUPABASE_URL`, `SUPABASE_ANON_KEY`, and optional `GEMINI_API_KEY`.
-4. Complete Gradle and debug-signing setup before running on an emulator or device.
+```bash
+npm run build
+npx cap sync android
+cd android
+./gradlew assembleDebug
+```
 
-**Checkout gaps:** Gradle wrapper files and the root `debug.keystore` referenced by `app/build.gradle.kts` are absent. This repository therefore needs local build-tool and signing setup before a fresh clone can produce an APK.
+The generated APK is written to `android/app/build/outputs/apk/debug/app-debug.apk`.
 
-## Code map
+## Data architecture
 
-| Path | Responsibility |
-| --- | --- |
-| `app/src/main/java/com/example/MainActivity.kt` | Compose application entry |
-| `app/src/main/java/com/example/ui/FactoryViewModel.kt` | UI state and operations |
-| `app/src/main/java/com/example/data/FactoryRepository.kt` | Business record operations |
-| `app/src/main/java/com/example/data/SupabaseService.kt` | Authentication and remote persistence |
-| `app/src/main/java/com/example/data/GeminiService.kt` | AI report requests |
-| `app/src/main/java/com/example/data/Models.kt` | Data models |
-
-## Backend and release notes
-
-Database migrations are not included. Check the expected tables and RLS policies against your own Supabase project. Some Android table names differ from the web companion; test the schema mapping before claiming shared real-time sync.
-
-The current Gemini integration reads a key from `BuildConfig`. Build-time values are recoverable from an APK, so a production release needs a server-side proxy for secret API credentials. Use synthetic business records for public demos.
-
-Existing test files provide a starting point. Broader inventory, authentication, and cross-client synchronization tests would strengthen the project.
+Supabase is the primary data provider. The app synchronizes products, contacts, stock transactions, expenses, employees, and attendance with the existing shared schema. A local browser cache keeps the interface usable when the network is unavailable.

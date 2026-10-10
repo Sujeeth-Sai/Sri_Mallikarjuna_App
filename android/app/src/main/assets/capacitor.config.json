@@ -1,0 +1,10 @@
+{
+	"appId": "com.srimallikarjuna.industries",
+	"appName": "Sri Mallikarjuna Industries",
+	"webDir": "dist",
+	"backgroundColor": "#17201d",
+	"android": {
+		"backgroundColor": "#17201d",
+		"allowMixedContent": false
+	}
+}
